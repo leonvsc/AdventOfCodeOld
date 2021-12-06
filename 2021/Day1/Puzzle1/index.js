@@ -1,18 +1,10 @@
-let measurements = [];
 let result = 0;
 const fs = require("fs");
-let text = fs.readFileSync("./input.txt", "utf-8");
-let textByLine = text.split("\n");
+let text = fs.readFileSync("./input.txt", "utf-8").toString().split("\n");
 
-console.log(typeof text);
-
-measurements.push(textByLine);
-
-console.log(measurements[0]);
-
-for (let i = 1; i < measurements.length; i++) {
-    let current = measurements[i];
-    let previous = measurements[i - 1];
+for (let i = 1; i < text.length; i++) {
+    let current = text[i];
+    let previous = text[i - 1];
     if (current > previous) {
         result++;
     }
