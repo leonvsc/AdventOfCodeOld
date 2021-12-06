@@ -1,21 +1,21 @@
 let measurements = [];
+let result = 0;
+const fs = require("fs");
+let text = fs.readFileSync("./input.txt", "utf-8");
+let textByLine = text.split("\n");
 
-const lineReader = require("line-reader");
-lineReader.eachLine("./input.txt", (line, last) => {
-    measurements.push(line);
-    lineReader.on("close", function () {
-        console.log(measurements);
-    });
-});
+console.log(typeof text);
 
-// let result = 0;
+measurements.push(textByLine);
 
-// for (let i = 1; i < measurements.length; i++) {
-//     let current = measurements[i];
-//     let previous = measurements[i - 1];
-//     if (current > previous) {
-//         result++;
-//     }
-// }
+console.log(measurements[0]);
 
-// console.log(result);
+for (let i = 1; i < measurements.length; i++) {
+    let current = measurements[i];
+    let previous = measurements[i - 1];
+    if (current > previous) {
+        result++;
+    }
+}
+
+console.log(result);
